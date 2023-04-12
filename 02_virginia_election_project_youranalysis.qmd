@@ -9,7 +9,6 @@ format:
     code-tools: true
 ---
 
-
 ```{r setup, include=FALSE, warning=FALSE, message=FALSE}
 
 
@@ -28,14 +27,45 @@ joined_vacomparison <- readRDS(here("processed_data", "joined_vacomparison.rds")
 
 ```
 
-
 # Comparing Virgnia Gov vs. Prez
 
+```{r}
+joined_vacomparison %>% 
+summarise(mcauliffe_mean_overperform = mean(mcauliffe_overperform))
 
+```
+
+```{r}
+joined_vacomparison %>% 
+summarise(youngkin_mean_overperform = mean(youngking_overperform))
+
+```
+```{r}
+
+joined_vacomparison %>% 
+  summarise(youngkin_median_overperform = median(youngking_overperform))
+  
+
+```
+```{r}
+
+joined_vacomparison %>% 
+  summarise(mcauliffe_median_overperform = median(mcauliffe_overperform))
+  
+
+```
+```{r}
+
+joined_vacomparison %>% 
+  arrange(desc(youngking_overperform)) 
+  
+
+```
 
 ```{r}
 
-head(joined_vacomparison)
-
+joined_vacomparison %>% 
+  arrange(desc(mcauliffe_overperform)) 
+  
 
 ```
